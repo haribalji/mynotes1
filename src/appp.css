@@ -1,0 +1,502 @@
+.app {
+    /* height: 100vh; */
+    display: flex;
+    /* background-color:#fe401c; */
+    background: #f9f9f9; /* Light gray background for a clean look */
+    color: #333; /* Dark gray text for better readability */
+}
+
+.main {
+    width: 75%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 123, 255, 0.8));
+    /* background:whitesmoke; */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-size: cover;      /* Scale the image to cover the element */
+    background-position: center; /* Center the image */
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    height: 50%;
+    position: relative;
+}
+
+.heading
+{
+    font-size: 4rem;
+      font-weight: bold;
+      color: #003366;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 100px;
+    
+}
+
+.bottom {
+    height: 50%;
+}
+
+.timer {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid #fff; /* White border */
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    bottom: 10px;
+    left: 80px;
+    background-color: #007bff; /* Professional blue */
+    color: #fff; /* White text */
+}
+
+.trivia {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.questions {
+    width: 80%;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Professional blue gradient */
+    border: 2px solid #fff; /* White border */
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    color: #fff; /* White text */
+    font-family: fantasy;
+    letter-spacing: 1.2px;
+}
+
+.answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.answer {
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Professional blue gradient */
+    border-radius: 15px;
+    border: 2px solid #fff; /* White border */
+    margin: 0 10px 20px 10px;
+    color: #fff; /* White text */
+    font-family: fantasy;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+}
+
+.answer:hover,
+.answer.active {
+    background: #0056b3; /* Darker blue for hover/active state */
+}
+
+.answer.correct {
+    animation: correct 3s ease forwards;
+}
+
+@keyframes correct {
+    0%,
+    22%,
+    42% {
+        background: #ff6a00; /* Orange */
+    }
+    20%,
+    40%,
+    60% {
+        background: #28a745; /* Green */
+    }
+    62%,
+    100% {
+        background: #28a745; /* Green */
+    }
+}
+
+.answer.wrong {
+    animation: wrong 3s ease forwards;
+}
+
+@keyframes wrong {
+    0%,
+    22%,
+    42% {
+        background: #ff6a00; /* Orange */
+    }
+    20%,
+    40%,
+    60% {
+        background: #dc3545; /* Red */
+    }
+    62%,
+    100% {
+        background: #dc3545; /* Red */
+    }
+}
+
+.money {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.moneylist {
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+}
+
+.moneylistitem {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Light gray border */
+    margin-bottom: 10px;
+}
+
+.moneylistnumber {
+    font-size: 18px;
+    font-weight: 100;
+    width: 30%;
+    color: #333; /* Dark gray text */
+}
+
+.moneylistamount {
+    font-size: 20px;
+    font-weight: 300;
+    color: #333; /* Dark gray text */
+}
+
+.moneylistitem.active {
+    background-color: #007bff; /* Professional blue for active item */
+    color: #fff; /* White text for active item */
+}
+
+.endtext {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #007bff; /* Professional blue */
+    font-family: fantasy;
+    font-size: 5rem;
+    letter-spacing: 4px;
+    border: 2px solid #fff; /* White border */
+    text-shadow: 2px 2px 0 #333, -2px -2px 0 #333, 2px -2px 0 #333, -2px 2px 0 #333;
+    padding: 5px;
+}
+
+.restart-button {
+    border-radius: 5px;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Professional blue gradient */
+    font-family: fantasy;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    color: #fff; /* White text */
+    position: relative;
+    top: 320px;
+    border: none;
+    cursor: pointer;
+}
+
+.end-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Adjustments (unchanged from your original code) */
+@media screen and (max-width: 1024px) and (min-width: 600px) {
+    .app {
+        height: 600px;
+    }
+
+    .endtext {
+        top: 300px;
+        text-align: center;
+        padding: 5px;
+    }
+}
+
+@media screen and (min-width: 1260px) {
+    .app {
+        height: 700px;
+    }
+
+    .main {
+        width: 60%;
+    }
+
+    .bottom {
+        height: 0%;
+    }
+
+    .answer {
+        margin-top: 20px;
+    }
+
+    .endtext {
+        top: 300px;
+        text-align: center;
+        padding: 5px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .timer {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .questions {
+        font-size: 18px;
+    }
+
+    .answer {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 560px) {
+    .timer {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        left: 40px;
+    }
+
+    .trivia {
+        height: 0%;
+        width: 355px;
+    }
+
+    .bottom {
+        width: 360px;
+        padding-left: 20px;
+    }
+
+    .answers {
+        width: 250px;
+        height: 180px;
+    }
+
+    .questions {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .answer {
+        width: 90%;
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .moneylistitem {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .endtext {
+        top: 300px;
+        font-size: 3.3rem;
+        text-align: center;
+        margin: 5px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 450px) {
+    .app {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .bottom {
+        position: relative;
+        bottom: 200px;
+    }
+
+    .timer {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        left: 40px;
+        top: 190px;
+    }
+
+    .moneylistitem {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-right: 20px;
+    }
+
+    .money {
+        position: relative;
+        bottom: 350px;
+        padding-left: 10px;
+    }
+
+    .moneylist {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        padding-left: 20px;
+    }
+
+    .moneylistnumber {
+        font-size: 15px;
+        font-weight: 500;
+        padding-top: 3px;
+        padding-right: 3px;
+    }
+
+    .moneylistamount {
+        font-size: 15px;
+        font-weight: 500;
+        padding-top: 3px;
+    }
+
+    .moneylistitem.active {
+        background: linear-gradient(135deg, #007bff, #0056b3); /* Professional blue gradient */
+    }
+
+    .endtext {
+        top: 300px;
+        font-size: 3.3rem;
+        text-align: center;
+        margin: 5px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 432px) {
+    .trivia {
+        width: 370px;
+    }
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) {
+    .endtext {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 414px) {
+    .trivia {
+        width: 360px;
+    }
+}
+
+@media (max-width: 416px) {
+    .timer {
+        top: 160px;
+    }
+
+    .endtext {
+        font-size: 2.5rem;
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 392px) {
+    .trivia {
+        width: 330px;
+    }
+
+    .timer {
+        position: relative;
+        left: 20px;
+        top: 130px;
+    }
+
+    .moneylistitem {
+        padding-right: 5px;
+    }
+
+    .moneylist {
+        position: relative;
+        top: 50px;
+        padding-left: 40px;
+    }
+
+    .endtext {
+        font-size: 2.5rem;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 386px) {
+    .bottom {
+        bottom: 100px;
+    }
+
+    .money {
+        bottom: 190px;
+    }
+
+    .endtext {
+        font-size: 2.5rem;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 380px) {
+    .bottom {
+        bottom: 100px;
+    }
+
+    .money {
+        bottom: 200px;
+    }
+
+    .trivia {
+        width: 280px;
+    }
+
+    .endtext {
+        font-size: 2.5rem;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 376px) {
+    .trivia {
+        width: 320px;
+    }
+}
+
+@media (max-width: 365px) {
+    .trivia {
+        width: 300px;
+    }
+}
+
+@media (max-width: 350px) {
+    .trivia {
+        width: 280px;
+    }
+}
+

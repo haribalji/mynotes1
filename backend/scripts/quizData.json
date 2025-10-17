@@ -1,0 +1,94 @@
+[
+    {
+      "question": "What is the capital of nangu?",
+      "answers": [
+        { "text": "Berlin", "correct": false },
+        { "text": "Madrid", "correct": false },
+        { "text": "Paris", "correct": true },
+        { "text": "Rome", "correct": false }
+      ]
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "answers": [
+        { "text": "Earth", "correct": false },
+        { "text": "Mars", "correct": true },
+        { "text": "Jupiter", "correct": false },
+        { "text": "Venus", "correct": false }
+      ]
+    },
+    {
+      "question": "Who developed the theory of relativity?",
+      "answers": [
+        { "text": "Isaac Newton", "correct": false },
+        { "text": "Albert Einstein", "correct": true },
+        { "text": "Galileo Galilei", "correct": false },
+        { "text": "Nikola Tesla", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the largest mammal in the world?",
+      "answers": [
+        { "text": "Elephant", "correct": false },
+        { "text": "Blue Whale", "correct": true },
+        { "text": "Giraffe", "correct": false },
+        { "text": "Shark", "correct": false }
+      ]
+    },
+    {
+      "question": "In which year did the Titanic sink?",
+      "answers": [
+        { "text": "1910", "correct": false },
+        { "text": "1912", "correct": true },
+        { "text": "1908", "correct": false },
+        { "text": "1915", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the chemical symbol for gold?",
+      "answers": [
+        { "text": "Ag", "correct": false },
+        { "text": "Au", "correct": true },
+        { "text": "Pb", "correct": false },
+        { "text": "Fe", "correct": false }
+      ]
+    },
+    {
+      "question": "Which country is the largest by land area?",
+      "answers": [
+        { "text": "Canada", "correct": false },
+        { "text": "United States", "correct": false },
+        { "text": "Russia", "correct": true },
+        { "text": "China", "correct": false }
+      ]
+    },
+    {
+      "question": "Who painted the Mona Lisa?",
+      "answers": [
+        { "text": "Vincent van Gogh", "correct": false },
+        { "text": "Pablo Picasso", "correct": false },
+        { "text": "Leonardo da Vinci", "correct": true },
+        { "text": "Claude Monet", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the smallest country in the world?",
+      "answers": [
+        { "text": "Vatican City", "correct": true },
+        { "text": "Monaco", "correct": false },
+        { "text": "Nauru", "correct": false },
+        { "text": "San Marino", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the tallest mountain in the world?",
+      "answers": [
+        { "text": "Mount K2", "correct": false },
+        { "text": "Mount Everest", "correct": true },
+        { "text": "Kangchenjunga", "correct": false },
+        { "text": "Mount Kilimanjaro", "correct": false }
+      ]
+    }
+  ]
+  
+  

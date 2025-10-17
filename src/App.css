@@ -36,3 +36,60 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root, .app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full height */
+}
+
+.content {
+  flex: 1; /* Pushes the footer to the bottom */
+}
+
+footer {
+  background: #343a40; /* Dark background */
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+
+/* 
+
+/* Ensure the html and body take full height and have no default margin */
+/* html, body {
+  height: 100%;
+  margin: 0;
+} */
+
+/* Main container is a flex column with minimum height equal to viewport height */
+/* .app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} */
+
+/* Main content grows to fill available space */
+/* .main-content {
+  flex: 1; */
+  /* Add some padding at the bottom to ensure that when content is short, 
+     it doesn’t get hidden by the footer */
+  /* padding-bottom: 2rem; */
+/* } */ 
