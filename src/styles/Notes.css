@@ -1,0 +1,41 @@
+/* Styles for Notes list and layout */
+.notes-section {
+  max-width: 980px;
+  margin: 34px auto 60px;
+  padding: 0 18px;
+}
+
+.notes-heading {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 26px 0 18px;
+  color: #0f1724;
+}
+
+.notes-empty {
+  color: #6b7785;
+  margin: 18px 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+/* ensure Addnote card centers and has margin similar to screenshot */
+.addnote-card {
+  max-width: 760px;
+  margin: 28px auto 12px;
+}
+
+@media (max-width: 640px) {
+  .notes-section {
+    padding: 0 12px;
+  }
+
+  .notes-heading {
+    font-size: 20px;
+  }
+}

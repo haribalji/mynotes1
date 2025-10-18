@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import ReactDom from "react-dom";
+import ReactDOM from "react-dom";
 import "../appp.css";
 import Trivia from "../components/Trivia";
 import Timer from "../components/Timer";
@@ -8,7 +8,7 @@ import axios from "axios"; // Axios for making HTTP requests
 import { useNavigate } from "react-router-dom";
 
 
-function App() {
+function Quizapp() {
   const [questionnumber, setquestionnumber] = useState(1);
   const [stop, setstop] = useState(false);
   const [earned, setearned] = useState("0");
@@ -114,7 +114,7 @@ function App() {
   );
 }
 
-export default App;
+export default Quizapp;
 
 
 

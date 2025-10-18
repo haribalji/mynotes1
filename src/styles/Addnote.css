@@ -1,0 +1,96 @@
+/* Styles for Addnote component - card style like the provided design */
+.addnote-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 6px 18px rgba(23, 31, 56, 0.08);
+  max-width: 920px;
+  margin: 20px auto;
+  border: 1px solid #f0f2f6;
+}
+
+.addnote-inner {
+  display: block;
+}
+
+.addnote-heading {
+  font-size: 34px;
+  margin: 6px 0 20px;
+  font-weight: 700;
+  color: #0f1724;
+}
+
+.addnote-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.addnote-label {
+  font-size: 14px;
+  color: #68708a;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.addnote-label.optional {
+  color: #68708a;
+}
+
+.addnote-input,
+.addnote-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #e6edf5;
+  background: #fbfdff;
+  font-size: 15px;
+  color: #102030;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.addnote-input:focus,
+.addnote-textarea:focus {
+  border-color: #a3b4ff;
+  box-shadow: 0 4px 18px rgba(55, 84, 255, 0.12);
+}
+
+.addnote-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.addnote-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.addnote-button {
+  background: linear-gradient(180deg, #5b45ff, #4a2ce6);
+  color: #fff;
+  border: none;
+  padding: 14px 26px;
+  font-size: 16px;
+  border-radius: 28px;
+  box-shadow: 0 10px 24px rgba(90, 45, 255, 0.18);
+  cursor: pointer;
+}
+
+.addnote-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .addnote-card {
+    padding: 18px;
+    margin: 12px;
+  }
+
+  .addnote-heading {
+    font-size: 24px;
+  }
+}

@@ -37,23 +37,15 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-#root, .app-container {
+#root,
+.app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensure full height */
@@ -69,7 +61,6 @@ footer {
   text-align: center;
   padding: 10px;
 }
-
 
 /* 
 
@@ -89,7 +80,7 @@ footer {
 /* Main content grows to fill available space */
 /* .main-content {
   flex: 1; */
-  /* Add some padding at the bottom to ensure that when content is short, 
+/* Add some padding at the bottom to ensure that when content is short, 
      it doesn’t get hidden by the footer */
-  /* padding-bottom: 2rem; */
-/* } */ 
+/* padding-bottom: 2rem; */
+/* } */

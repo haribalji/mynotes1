@@ -1,0 +1,80 @@
+/* Noteitem card styles */
+.note-col {
+  /* Let the grid control sizing; add modest margin for spacing */
+  margin: 12px;
+  display: block;
+}
+
+.note-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 22px 20px;
+  box-shadow: 0 8px 20px rgba(23, 31, 56, 0.06);
+  border: 1px solid #f0f2f6;
+  min-height: 180px;
+  position: relative;
+}
+
+.note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note-title {
+  font-size: 20px;
+  margin: 0;
+  color: #0f1724;
+  font-weight: 700;
+}
+
+.note-badge {
+  background: linear-gradient(180deg, #eef0ff, #f7eefc);
+  color: #6b4bff;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.note-desc {
+  color: #6b7785;
+  margin-top: 14px;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.note-actions {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.note-icon {
+  background: transparent;
+  border: none;
+  color: #425066;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px;
+}
+
+.note-icon:hover {
+  color: #25324a;
+}
+
+@media (max-width: 900px) {
+  .note-col {
+    width: calc(50% - 24px);
+    margin: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .note-col {
+    width: calc(100% - 36px);
+    display: block;
+    margin: 12px auto;
+  }
+}

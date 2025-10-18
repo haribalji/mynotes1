@@ -1,54 +1,90 @@
-import React,{useContext, useEffect, useState} from 'react'
-import noteContext from '../context/notes/notecontext';
+import React, { useContext, useEffect, useState } from "react";
+import noteContext from "../context/notes/notecontext";
+import "../styles/Addnote.css";
 
 const Addnote = (props) => {
-    const a = useContext(noteContext);
-    const {addNote}=a;//doing the deconstuction 
-    const [note, setnote] = useState({Title:"",description:"",tag:""})
- const   handleclick=(e)=>{
+  const a = useContext(noteContext);
+  const { addNote } = a; //doing the deconstuction
+  const [note, setnote] = useState({ Title: "", description: "", tag: "" });
+  const handleclick = (e) => {
     e.preventDefault();
-    addNote(note.Title,note.description,note.tag);
+    addNote(note.Title, note.description, note.tag);
 
-    setnote({Title:" ",description:" ",tag:""});
+    setnote({ Title: " ", description: " ", tag: "" });
     // after adding we are giving the alert that we added the note
-    props.showAlert("Added Successfully","success");
-
-    }
-    const onchange=(e)=>{
-  setnote({
-    ...note,[e.target.name]:e.target.value
-  })
-// it will keep the note variable as it is, if any changes are happening then it will affect only that particular field
-    }
+    props.showAlert("Added Successfully", "success");
+  };
+  const onchange = (e) => {
+    setnote({
+      ...note,
+      [e.target.name]: e.target.value,
+    });
+    // it will keep the note variable as it is, if any changes are happening then it will affect only that particular field
+  };
   return (
-    <div className="container my-4">
+    <div className="addnote-card">
+      <div className="addnote-inner">
+        <h1 className="addnote-heading">Add your note</h1>
 
-    <h1>Add your note
+        <form className="addnote-form" onSubmit={handleclick}>
+          <label className="addnote-label" htmlFor="Title">
+            Title
+          </label>
+          <input
+            type="text"
+            className="addnote-input"
+            id="Title"
+            name="Title"
+            placeholder="e.g. Meeting Notes"
+            value={note.Title}
+            onChange={onchange}
+            minLength={5}
+            required
+          />
 
-    </h1>
+          <label className="addnote-label" htmlFor="description">
+            Description
+          </label>
+          <textarea
+            className="addnote-textarea"
+            id="description"
+            name="description"
+            placeholder="e.g. Discussed project timeline..."
+            value={note.description}
+            onChange={onchange}
+            minLength={5}
+            required
+          ></textarea>
 
+          <label className="addnote-label optional" htmlFor="tag">
+            Tag (Optional)
+          </label>
+          <input
+            type="text"
+            className="addnote-input"
+            id="tag"
+            name="tag"
+            placeholder="e.g. work"
+            value={note.tag}
+            onChange={onchange}
+          />
 
-    <form>
-<div className="form-group">
-  <label htmlFor="Title">Title - min 5 characters</label>
-  <input type="text" className="form-control" id="Title"  name="Title" aria-describedby="emailHelp" value={note.Title} onChange={onchange} minLength={5} required />
-</div>
-<div className="form-group my-4">
-  <label htmlFor="description">Description-  min 5 characters</label>
-  {/* <input type="text" className="form-control" id="description" name="description" value={note.description} onChange={onchange} minLength={5} required /> */}
-  <textarea className="form-control" id="description" name="description" value={note.description} onChange={onchange} minLength={5} required></textarea>
+          <div className="addnote-actions">
+            <button
+              disabled={
+                note.Title.trim().length < 5 ||
+                note.description.trim().length < 5
+              }
+              type="submit"
+              className="addnote-button"
+            >
+              Add Note
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
 
-</div>
-<div className="form-group my-4">
-  <label htmlFor="tag">Tag</label>
-  <input type="text" className="form-control" id="tag" name="tag"  value={note.tag}onChange={onchange} minLength={5} required />
-</div>
-
-<button  disabled={note.Title.length<5|| note.description.length<5}type="submit" className="btn btn-primary" onClick={handleclick}>Add note</button>
-</form>
-</div>
-
-  )
-}
-
-export default Addnote
+export default Addnote;

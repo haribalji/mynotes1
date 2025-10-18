@@ -7,15 +7,15 @@ const AddStudent = (props) => {
 
     const [student, setStudent] = useState({
         name: "",
-        class: "",
+        className: "",
         age: "",
         phone: ""
     });
 
     const handleClick = (e) => {
         e.preventDefault();
-        addStudent(student.name, student.class, student.age, student.phone);
-        setStudent({ name: "", class: "", age: "", phone: "" });
+        addStudent(student.name, student.className, student.age, student.phone);
+        setStudent({ name: "", className: "", age: "", phone: "" });
         props.showAlert("Student Added Successfully", "success");
     };
 
@@ -33,10 +33,10 @@ const AddStudent = (props) => {
                         value={student.name} onChange={onChange} minLength={3} required />
                 </div>
 
-                <div className="form-group my-3">
-                    <label htmlFor="classs">Class (Numeric)</label>
-                    <input type="number" className="form-control" id="classs" name="classs"
-                        value={student.class} onChange={onChange} required />
+                <div class="form-group my-3">
+                    <label htmlFor="className">Class (Numeric)</label>
+                    <input type="number" class="form-control" id="className" name="className"
+                        value={student.className} onChange={onChange} required />
                 </div>
 
                 <div className="form-group my-3">

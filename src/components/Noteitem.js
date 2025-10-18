@@ -1,35 +1,44 @@
 // import React from 'react'
-import React,{useContext, useEffect, useState} from 'react'
-import noteContext from '../context/notes/notecontext';
-
-
-
+import React, { useContext } from "react";
+import noteContext from "../context/notes/notecontext";
+import "../styles/Noteitem.css";
 
 const Noteitem = (props) => {
-  // const {showAlert}=props;
-    const a = useContext(noteContext);
-    const {deletenote}=a;//doing the deconstuction 
-  const   {note,updatenote}=props
-      return (
-    <div className='col-md-4'>
-  
+  const { note, updatenote } = props;
+  const a = useContext(noteContext);
+  const { deletenote } = a;
 
-      <div className="card my-3" >
-  <div className="card-body">
-    <h5 className="card-title">{note.title}</h5>
-    <p className="card-text">{note.description}</p>
-    <i className="fa-solid fa-trash-can mx-2" onClick={()=>{deletenote(note._id);
-      props.showAlert("Deleted Successfully","success");
-   }} ></i> 
-    <i className="fa-solid fa-pen-to-square mx-2" onClick={()=>{updatenote(note)
+  return (
+    <div className="note-col">
+      <div className="note-card">
+        <div className="note-header">
+          <h3 className="note-title">{note.title}</h3>
+          {note.tag && <span className="note-badge">{note.tag}</span>}
+        </div>
 
-    }}></i>
-    
-     </div>
+        <p className="note-desc">{note.description}</p>
 
-</div>
+        <div className="note-actions">
+          <button
+            className="note-icon"
+            title="Edit"
+            onClick={() => updatenote(note)}
+          >
+            <i className="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button
+            className="note-icon"
+            title="Delete"
+            onClick={() => {
+              deletenote(note._id);
+              props.showAlert("Deleted Successfully", "success");
+            }}
+          >
+            <i className="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
-
-export default Noteitem
+  );
+};
+export default Noteitem;
