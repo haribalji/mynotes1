@@ -6,11 +6,11 @@
 }
 
 .note-card {
-  background: #ffffff;
-  border-radius: 10px;
+  background: var(--card-bg, #ffffff);
+  border-radius: var(--card-radius-sharp, 8px);
   padding: 22px 20px;
-  box-shadow: 0 8px 20px rgba(23, 31, 56, 0.06);
-  border: 1px solid #f0f2f6;
+  box-shadow: var(--card-shadow-strong, 0 18px 60px rgba(15, 23, 36, 0.18));
+  border: 1px solid rgba(15, 23, 36, 0.04);
   min-height: 180px;
   position: relative;
 }

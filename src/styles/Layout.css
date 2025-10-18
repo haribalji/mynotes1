@@ -6,7 +6,7 @@
 }
 
 .site-header {
-  background: #fff;
+  background: var(--bg-light);
   border-bottom: 1px solid rgba(15, 23, 36, 0.03);
   position: sticky;
   top: 0;
@@ -65,7 +65,7 @@
   background: linear-gradient(180deg, var(--brand-purple), #4a2ce6);
   color: #fff;
   padding: 8px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
 }
@@ -131,8 +131,8 @@
   right: 12px;
   background: #fff;
   padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(15, 23, 36, 0.08);
+  border-radius: var(--card-radius-sharp);
+  box-shadow: var(--card-shadow-strong);
 }
 
 .mobile-toggle {

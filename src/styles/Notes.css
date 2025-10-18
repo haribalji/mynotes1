@@ -26,8 +26,9 @@
 
 /* Modal visual tweaks to match screenshot */
 .modal-content.rounded-3 {
-  border-radius: 10px;
+  border-radius: var(--card-radius-sharp);
   overflow: hidden;
+  box-shadow: var(--card-shadow-strong);
 }
 .modal-header {
   padding: 18px 22px;

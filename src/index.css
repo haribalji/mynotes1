@@ -1,16 +1,31 @@
+:root {
+  --app-bg: #f7f8fb; /* soft off-white */
+  --card-bg: #ffffff;
+  --card-shadow: 0 12px 40px rgba(15, 23, 36, 0.12);
+  --card-shadow-strong: 0 18px 60px rgba(15, 23, 36, 0.18);
+  --card-radius: 30px;
+  --card-radius-sharp: 8px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--app-bg);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-i{
+i {
   cursor: pointer;
+}
+
+/* Utility to apply global app background to wrappers if needed */
+.app-bg {
+  background: var(--app-bg);
 }
