@@ -83,18 +83,20 @@ const Notes = (props) => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
-          <div className="modal-content">
+        <div className="modal-dialog modal-dialog-centered modal-lg">
+          <div className="modal-content rounded-3">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 Edit Note
               </h5>
               <button
                 type="button"
-                className="btn-close"
+                className="modal-close-btn"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              ></button>
+              >
+                ×
+              </button>
             </div>
             <div className="modal-body">
               <form>
@@ -148,7 +150,7 @@ const Notes = (props) => {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-rounded"
                 ref={ref2}
                 data-bs-dismiss="modal"
               >
@@ -160,7 +162,7 @@ const Notes = (props) => {
                 }
                 type="button"
                 onClick={handleclick}
-                className="btn btn-primary"
+                className="btn btn-primary btn-rounded"
               >
                 Update Note
               </button>

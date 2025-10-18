@@ -24,6 +24,41 @@
   align-items: start;
 }
 
+/* Modal visual tweaks to match screenshot */
+.modal-content.rounded-3 {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.modal-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid #e9ecef;
+}
+.modal-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.modal-body {
+  padding: 18px 22px;
+}
+.modal-footer {
+  padding: 16px 22px;
+  border-top: 1px solid #e9ecef;
+}
+.btn-rounded {
+  border-radius: 8px;
+  padding: 10px 16px;
+}
+
 /* ensure Addnote card centers and has margin similar to screenshot */
 .addnote-card {
   max-width: 760px;
