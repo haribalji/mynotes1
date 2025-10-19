@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/Login.css";
 
 const Login = (props) => {
   const navigate = useNavigate();
@@ -64,56 +65,54 @@ const Login = (props) => {
     // </div>
     // </div>
 
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <h2 className="text-center mb-4">Login to continue to Mynotebook</h2>
-          <form onSubmit={handlesubmit}>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email address
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                onChange={onchange}
-                name="email"
-                value={credentials.email}
-                aria-describedby="emailHelp"
-                required
-              />
-              <div id="emailHelp" className="form-text">
-                We'll never share your email with anyone else.
-              </div>
+    <div className="login-wrapper">
+      <div className="login-card">
+        <h2>Login to continue to MyNotebook</h2>
+        <form onSubmit={handlesubmit}>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              onChange={onchange}
+              name="email"
+              value={credentials.email}
+              aria-describedby="emailHelp"
+              required
+            />
+            <div id="emailHelp" className="form-text">
+              We'll never share your email with anyone else.
             </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                value={credentials.password}
-                id="password"
-                onChange={onchange}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Submit
-            </button>
-          </form>
-          <div className="d-flex justify-content-center mt-4">
-            <button
-              type="button"
-              onClick={handleonclik}
-              className="btn btn-success"
-            >
-              New User
-            </button>
           </div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              name="password"
+              value={credentials.password}
+              id="password"
+              onChange={onchange}
+              required
+            />
+          </div>
+          <button type="submit" className="login-submit w-100">
+            Submit
+          </button>
+        </form>
+        <div className="d-flex justify-content-center">
+          <button
+            type="button"
+            onClick={handleonclik}
+            className="new-user w-100"
+          >
+            New User
+          </button>
         </div>
       </div>
     </div>
