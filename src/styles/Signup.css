@@ -1,0 +1,61 @@
+/* Signup page styles matching the provided screenshot */
+.signup-wrapper {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.signup-card {
+  width: 540px;
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: var(--card-shadow-strong, 0 18px 60px rgba(15, 23, 36, 0.18));
+}
+.signup-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.signup-sub {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+.form-label {
+  font-size: 13px;
+  color: #374151;
+}
+.form-control {
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 3px solid rgba(15, 23, 36, 0.06);
+}
+.create-btn {
+  margin-top: 18px;
+  background: linear-gradient(180deg, #5b45ff, #4a2ce6);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 18px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: 600;
+}
+
+.login-link {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  color: #4753ff;
+}
+
+@media (max-width: 600px) {
+  .signup-card {
+    width: 92%;
+    padding: 20px;
+  }
+}

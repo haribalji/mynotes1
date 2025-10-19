@@ -131,14 +131,14 @@ const Navbar = () => {
           ) : (
             <>
               <Link
-                className="btn btn-outline"
+                className="btn-outline"
                 to="/login"
                 onClick={handleNavCollapse}
               >
                 Login
               </Link>
               <Link
-                className="btn btn-primary"
+                className="btn-logout"
                 to="/signup"
                 onClick={handleNavCollapse}
               >
