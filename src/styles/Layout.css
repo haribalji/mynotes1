@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   pointer-events: none; /* allow clicks inside inner chip only */
-  z-index: 1200;
+  z-index: 500;
 }
 
 .site-nav {
@@ -152,7 +152,7 @@
   background: var(--brand-purple);
   color: #fff;
   border: none;
-  z-index: 1200;
+  z-index: 500;
 }
 
 .scroll-top.show {

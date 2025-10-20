@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import noteContext from "../context/notes/notecontext";
 import Noteitem from "./Noteitem";
 import Addnote from "./Addnote";
@@ -101,6 +102,7 @@ const Notes = (props) => {
         </button>
 
         {/* <!-- Modal --> */}
+        {ReactDOM.createPortal(
         <div
           className="modal fade"
           id="exampleModal"
@@ -152,7 +154,7 @@ const Notes = (props) => {
                       required
                     ></textarea>
 
-                    {/* <input type="text" className="form-control" id="edescription" value={note.edescription} name="edescription" placeholder="description" onChange={onchange} minLength={5} required  /> */}
+                    {/* <input type=\"text\" className=\"form-control\" id=\"edescription\" value={note.edescription} name=\"edescription\" placeholder=\"description\" onChange={onchange} minLength={5} required  /> */}
                   </div>
                   <div className="form-group">
                     <label htmlFor="tag">Tag</label>
@@ -169,7 +171,7 @@ const Notes = (props) => {
                     />
                   </div>
 
-                  {/* <button type="submit" className="btn btn-primary" onClick={handleclick}>Add note</button> */}
+                  {/* <button type=\"submit\" className=\"btn btn-primary\" onClick={handleclick}>Add note</button> */}
                 </form>
               </div>
               <div className="modal-footer">
@@ -194,7 +196,7 @@ const Notes = (props) => {
               </div>
             </div>
           </div>
-        </div>
+        </div>, document.body)}
         {/* istead of onclick if we use onsubmit if will work */}
 
         <section className="notes-section">

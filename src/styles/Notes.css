@@ -1,7 +1,6 @@
 .notes-wrapper {
   position: relative;
   overflow: hidden;
-  z-index: 0;
 }
 
 .content-ontop {
@@ -29,7 +28,7 @@
 }
 
 .book::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -2px;
   left: -6px;
@@ -38,7 +37,6 @@
   background-color: #7d6b5d;
   border-radius: 2px 0 0 2px;
 }
-
 
 .book1 {
   top: 10%;
@@ -198,6 +196,7 @@
   border: 1px solid rgba(11, 28, 50, 0.04);
   box-shadow: 0 30px 80px rgba(11, 28, 50, 0.08);
   overflow: hidden;
+  transition: box-shadow 220ms ease;
 }
 .modal-header {
   padding: 18px 22px;
@@ -284,4 +283,18 @@
   .notes-heading {
     font-size: 20px;
   }
+}
+
+/* Ensure bootstrap modal and backdrop render above fixed header/footer */
+.modal-backdrop {
+  z-index: 1100 !important;
+}
+.modal,
+.modal.show {
+  z-index: 1200 !important;
+}
+
+/* If any app-level fixed elements use high z-index, ensure modal dialog centers above them */
+.modal-dialog {
+  z-index: 1300;
 }
