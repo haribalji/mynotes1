@@ -1,12 +1,19 @@
-/* Styles for Addnote component - card style like the provided design */
+/* Styles for Addnote component - updated to match site hero/card theme */
 .addnote-card {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 28px;
-  box-shadow: var(--card-shadow-strong);
-  max-width: 920px;
-  margin: 20px auto;
-  border: 1px solid #f0f2f6;
+  width: 100%;
+  max-width: 820px;
+  margin: 24px auto;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(245, 255, 250, 0.7)
+  );
+  border-radius: 18px;
+  padding: 32px 28px;
+  box-shadow: 0 30px 80px rgba(12, 34, 60, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(6px) saturate(110%);
+  transition: transform 240ms ease, box-shadow 240ms ease;
 }
 
 .addnote-inner {
@@ -14,16 +21,17 @@
 }
 
 .addnote-heading {
-  font-size: 34px;
-  margin: 6px 0 20px;
-  font-weight: 700;
-  color: #0f1724;
+  font-size: 30px;
+  margin: 6px 0 18px;
+  font-weight: 800;
+  color: #0b2540;
+  text-align: center;
 }
 
 .addnote-form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 14px;
 }
 
 .addnote-label {
@@ -41,9 +49,9 @@
 .addnote-textarea {
   width: 100%;
   padding: 14px 16px;
-  border-radius: 8px;
-  border: 3px solid #e6edf5;
-  background: #fbfdff;
+  border-radius: 12px;
+  border: 1px solid rgba(11, 37, 64, 0.06);
+  background: rgba(255, 255, 255, 0.84);
   font-size: 15px;
   color: #102030;
   box-sizing: border-box;
@@ -52,8 +60,8 @@
 
 .addnote-input:focus,
 .addnote-textarea:focus {
-  border-color: #a3b4ff;
-  box-shadow: 0 4px 18px rgba(55, 84, 255, 0.12);
+  border-color: rgba(74, 44, 230, 0.32);
+  box-shadow: 0 6px 26px rgba(74, 44, 230, 0.08);
 }
 
 .addnote-textarea {
@@ -63,20 +71,21 @@
 
 .addnote-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .addnote-button {
-  background: linear-gradient(180deg, #5b45ff, #4a2ce6);
+  background: linear-gradient(90deg, #00e0c6 0%, #7b62ff 50%, #9b63ff 100%);
   color: #fff;
   border: none;
   padding: 14px 26px;
   font-size: 16px;
-  border-radius: 28px;
-  box-shadow: 0 10px 24px rgba(90, 45, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(74, 44, 230, 0.14);
   cursor: pointer;
+  min-width: 220px;
 }
 
 .addnote-button:disabled {
@@ -87,10 +96,16 @@
 @media (max-width: 640px) {
   .addnote-card {
     padding: 18px;
-    margin: 12px;
+    margin: 12px 10px;
   }
 
   .addnote-heading {
     font-size: 24px;
+  }
+  .addnote-actions {
+    justify-content: stretch;
+  }
+  .addnote-button {
+    width: 100%;
   }
 }

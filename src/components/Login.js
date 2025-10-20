@@ -126,8 +126,60 @@ const Login = (props) => {
           opacity="0.9"
         ></path>
       </svg>
+      {/* more icons to reach 10 total */}
+      <svg
+        className="floating-icon icon-f"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="rgba(255,255,255,0.95)"
+          d="M3 5a2 2 0 0 1 2-2h12v14H5a2 2 0 0 1-2-2V5z"
+        ></path>
+      </svg>
+      <svg
+        className="floating-icon icon-g"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="rgba(255,255,255,0.95)"
+          d="M12 2a7 7 0 0 0-4 12v1a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1a7 7 0 0 0-4-12z"
+        />
+      </svg>
+      <svg
+        className="floating-icon icon-h"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="rgba(255,255,255,0.95)"
+          d="M4 4h14v12H4z"
+          opacity="0.9"
+        ></path>
+      </svg>
+      <svg
+        className="floating-icon icon-i"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="rgba(255,255,255,0.95)"
+          d="M3 5a2 2 0 0 1 2-2h12v14H5a2 2 0 0 1-2-2V5z"
+        ></path>
+      </svg>
+      <svg
+        className="floating-icon icon-j"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="rgba(255,255,255,0.95)"
+          d="M12 2a7 7 0 0 0-4 12v1a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1a7 7 0 0 0-4-12z"
+        />
+      </svg>
       <div className="login-card">
-        <h2>Welcome to Learning Lab</h2>
+        <h2>Welcome to MyNotebook</h2>
         <p>Enter your details to log in</p>
         <form onSubmit={handlesubmit}>
           <div className="mb-3">

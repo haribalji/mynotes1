@@ -53,6 +53,13 @@ body {
 
 .content {
   flex: 1; /* Pushes the footer to the bottom */
+  background: linear-gradient(
+    135deg,
+    #2ed5c9 0%,
+    #66d6a6 30%,
+    #6dd6d9 60%,
+    #4aa6f3 100%
+  );
 }
 
 footer {

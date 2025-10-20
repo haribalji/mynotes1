@@ -61,7 +61,8 @@ const Notes = (props) => {
   };
 
   return (
-    <>
+    <div className="notes-wrapper">
+      
       <Addnote showAlert={props.showAlert} />
 
       {/* <!-- Button trigger modal -->                          d-none is used hide this element  */}
@@ -190,7 +191,7 @@ const Notes = (props) => {
           </div>
         )}
       </section>
-    </>
+    </div>
   );
 };
 

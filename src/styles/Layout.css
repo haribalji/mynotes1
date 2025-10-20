@@ -36,15 +36,22 @@
   border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
+/* when header is on auth pages we want transparent header so it blends with hero */
+/* .site-header.auth .site-nav {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+} */
+
 /* Space to avoid overlap with fixed floating header */
 .content {
-  padding-top: 84px; /* matches fixed header height + margin */
+  padding-top: 84px; 
 }
 
 @media (max-width: 860px) {
   .content {
     padding-top: 96px;
-  } /* slightly taller when mobile toggle present */
+  } 
 }
 
 .brand-link {

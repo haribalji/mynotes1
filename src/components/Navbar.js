@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import "../styles/Layout.css";
-import { jwtDecode } from "jwt-decode"; 
+import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -37,8 +37,11 @@ const Navbar = () => {
     setMobileOpen(false);
   };
 
+  const isAuthRoute =
+    location.pathname === "/login" || location.pathname === "/signup";
+
   return (
-    <header className="site-header">
+    <header className={`site-header ${isAuthRoute ? "auth" : ""}`}>
       <div className="site-nav">
         <div className="brand">
           <Link to="/" className="brand-link">
@@ -74,7 +77,7 @@ const Navbar = () => {
           >
             Student
           </Link>
-          
+
           <Link
             className={`nav-link ${
               location.pathname === "/FileUpload" ? "active" : ""
@@ -103,7 +106,7 @@ const Navbar = () => {
           >
             About
           </Link>
-          
+
           {isAdmin && (
             <Link
               className={`nav-link ${
