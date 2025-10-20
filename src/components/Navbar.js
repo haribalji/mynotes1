@@ -40,6 +40,12 @@ const Navbar = () => {
   const isAuthRoute =
     location.pathname === "/login" || location.pathname === "/signup";
 
+  const isStudentActive =
+    location.pathname.startsWith("/student") ||
+    location.pathname.startsWith("/subjectsByClass") ||
+    location.pathname.startsWith("/chapters") ||
+    location.pathname.startsWith("/notes");
+
   return (
     <header className={`site-header ${isAuthRoute ? "auth" : ""}`}>
       <div className="site-nav">
@@ -69,9 +75,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            className={`nav-link ${
-              location.pathname === "/student" ? "active" : ""
-            }`}
+            className={`nav-link ${isStudentActive ? "active" : ""}`}
             to="/student"
             onClick={handleNavCollapse}
           >

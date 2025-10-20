@@ -53,6 +53,9 @@ body {
 
 .content {
   flex: 1; /* Pushes the footer to the bottom */
+  transition: background 650ms ease-in-out,
+    background-position 650ms ease-in-out;
+  /* default background (home) */
   background: linear-gradient(
     135deg,
     #2ed5c9 0%,
@@ -60,6 +63,52 @@ body {
     #6dd6d9 60%,
     #4aa6f3 100%
   );
+}
+
+/* Background variants - add more as needed */
+html.bg-home .content {
+  background: linear-gradient(
+    135deg,
+    #2ed5c9 0%,
+    #66d6a6 30%,
+    #6dd6d9 60%,
+    #4aa6f3 100%
+  );
+}
+html.bg-fileupload .content {
+  background: linear-gradient(135deg, #ffd7a8 0%, #ffb4a2 40%, #f59eeb 100%);
+}
+html.bg-admin .content {
+  background: linear-gradient(135deg, #e0f7ff 0%, #d5efff 30%, #cde7ff 100%);
+}
+html.bg-home-about .content {
+  background: linear-gradient(135deg, #b8fff1 0%, #9be7ff 40%, #c6b4ff 100%);
+}
+html.bg-login .content,
+html.bg-signup .content {
+  background: linear-gradient(135deg, #f5e6ff 0%, #e7f4ff 50%, #fff8e7 100%);
+}
+html.bg-student .content {
+  background: linear-gradient(135deg, #f2f7ff 0%, #dfeaff 50%, #e9fbe9 100%);
+}
+
+/* smooth background-position animation if you want movement */
+.content {
+  background-position: 0% 50%;
+}
+.animate-bg {
+  animation: bg-pan 12s linear infinite;
+}
+@keyframes bg-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 footer {

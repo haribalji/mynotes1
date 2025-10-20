@@ -14,7 +14,7 @@ import NoteState from "./context/notes/NoteState";
 import Alert from "./components/Alert";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Student from "./components/Studentdata";
 import StudentState from "./context/students/StudentState";
 import SubjectsByClass from "./components/SubjectsByClass";
@@ -73,6 +73,21 @@ function AppRoutes({ showAlert }) {
   const location = useLocation();
   const isAuthRoute =
     location.pathname === "/login" || location.pathname === "/signup";
+
+  // set a body-level class per route to allow background gradient transitions
+  useEffect(() => {
+    const route =
+      location.pathname === "/"
+        ? "home"
+        : location.pathname.replace(/[^a-z0-9]/gi, "-").replace(/^-|-$/g, "");
+    // remove any previous bg- classes
+    document.documentElement.classList.forEach((c) => {
+      if (c.indexOf("bg-") === 0) document.documentElement.classList.remove(c);
+    });
+    // add the new class
+    document.documentElement.classList.add(`bg-${route}`);
+    return () => {};
+  }, [location]);
 
   return (
     <div>
