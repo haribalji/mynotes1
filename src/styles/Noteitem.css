@@ -13,6 +13,8 @@
   border: 1px solid rgba(15, 23, 36, 0.04);
   min-height: 180px;
   position: relative;
+  transition: transform 220ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 220ms ease, opacity 320ms ease;
 }
 
 .note-header {
@@ -62,6 +64,44 @@
 
 .note-icon:hover {
   color: #25324a;
+}
+
+/* Hover/interactive states */
+.note-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 26px 80px rgba(15, 23, 36, 0.22);
+}
+
+.note-icon {
+  transition: background 180ms ease, transform 160ms ease, color 160ms ease;
+  border-radius: 8px;
+}
+
+.note-icon:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(74, 44, 230, 0.08);
+}
+
+.note-icon:hover {
+  transform: translateY(-2px);
+  background: rgba(74, 44, 230, 0.06);
+  color: #3b2adf;
+}
+
+/* Entrance animation: fade + slight upward motion */
+.note-fadeup {
+  animation: fadeUp 420ms cubic-bezier(0.22, 0.9, 0.2, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 900px) {

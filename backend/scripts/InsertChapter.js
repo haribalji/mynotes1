@@ -130,8 +130,10 @@
 // insertchapter.js
 const mongoose = require("mongoose");
 const Chapter = require("../models/Chapter");
-const mongoURI ='mongodb+srv://haribalaji17072004:123456hari@cluster0.b21vp.mongodb.net/mynotes'
-// 'mongodb://localhost:27017/mynotes'
+// const mongoURI ='mongodb+srv://haribalaji17072004:123456hari@cluster0.b21vp.mongodb.net/mynotes'
+// // 'mongodb://localhost:27017/mynotes'
+
+const mongoURI ='mongodb://localhost:27017/mynotes'
 
 const insertChapters = async () => {
     try {

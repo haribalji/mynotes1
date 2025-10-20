@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Signup.css";
+import "../styles/Login.css";
 
 const Signup = (props) => {
   const navigate = useNavigate();
@@ -42,8 +43,35 @@ const Signup = (props) => {
     });
   };
   return (
-    <div className="signup-wrapper">
-      <div className="signup-card">
+    <div className="login-wrapper">
+      <div className="login-bg-blob blob-a" aria-hidden="true"></div>
+      <svg
+        className="floating-icon icon-a"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="rgba(255,255,255,0.95)"
+          d="M3 5a2 2 0 0 1 2-2h12v14H5a2 2 0 0 1-2-2V5z"
+        ></path>
+        <path
+          fill="rgba(74,44,230,0.95)"
+          d="M7 3h10v12H7z"
+          opacity="0.14"
+        ></path>
+      </svg>
+      <div className="login-bg-blob blob-b" aria-hidden="true"></div>
+      <svg
+        className="floating-icon icon-b"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="rgba(255,255,255,0.98)"
+          d="M9 21h6v-1a3 3 0 0 0-6 0v1zM12 2a7 7 0 0 0-4 12v1a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1a7 7 0 0 0-4-12z"
+        />
+      </svg>
+      <div className="signup-card login-card">
         <h2 className="signup-title">Create Account</h2>
         <div className="signup-sub">
           Sign up to access your notes and summaries
@@ -108,9 +136,9 @@ const Signup = (props) => {
             />
           </div>
 
-            <button type="submit" className="create-btn">
-              Create Account
-            </button>
+          <button type="submit" className="login-submit w-100">
+            Create Account
+          </button>
         </form>
 
         <a className="login-link" href="/login">

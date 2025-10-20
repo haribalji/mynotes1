@@ -28,7 +28,7 @@ const Addnote = (props) => {
 
         <form className="addnote-form" onSubmit={handleclick}>
           <label className="addnote-label" htmlFor="Title">
-            Title
+            Title (min 5 characters)
           </label>
           <input
             type="text"
@@ -43,7 +43,7 @@ const Addnote = (props) => {
           />
 
           <label className="addnote-label" htmlFor="description">
-            Description
+            Description (min 5 characters)
           </label>
           <textarea
             className="addnote-textarea"
@@ -57,7 +57,7 @@ const Addnote = (props) => {
           ></textarea>
 
           <label className="addnote-label optional" htmlFor="tag">
-            Tag (Optional)
+            Tag
           </label>
           <input
             type="text"

@@ -78,7 +78,9 @@ const Subject = require("../models/Subject"); // Import the Subject model
 
 // MongoDB Connection
 // const mongoURI = 'mongodb://localhost:27017/mynotes'; // Specify your database name
-const mongoURI ='mongodb+srv://haribalaji17072004:123456hari@cluster0.b21vp.mongodb.net/mynotes'
+// const mongoURI ='mongodb+srv://haribalaji17072004:123456hari@cluster0.b21vp.mongodb.net/mynotes'
+
+const mongoURI ="mongodb://localhost:27017/mynotes"
 
 // const mongoURI = "mongodb://127.0.0.1:27017/schoolDB"; // Change database name if needed
 mongoose.connect(mongoURI, {

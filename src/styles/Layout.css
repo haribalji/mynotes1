@@ -6,27 +6,55 @@
 }
 
 .site-header {
-  background: var(--bg-light);
-  border-bottom: 1px solid rgba(15, 23, 36, 0.03);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  position: fixed;
+  top: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* allow clicks inside inner chip only */
+  z-index: 1200;
 }
 
 .site-nav {
+  pointer-events: auto;
   max-width: 1100px;
+  width: calc(100% - 48px);
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 14px 18px;
+  gap: 18px;
+  padding: 10px 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.6)
+  );
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(12, 34, 60, 0.12);
+  backdrop-filter: blur(6px) saturate(110%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+/* Space to avoid overlap with fixed floating header */
+.content {
+  padding-top: 84px; /* matches fixed header height + margin */
+}
+
+@media (max-width: 860px) {
+  .content {
+    padding-top: 96px;
+  } /* slightly taller when mobile toggle present */
 }
 
 .brand-link {
-  font-weight: 800;
+  font-weight: 900;
   font-size: 20px;
-  color: var(--brand-purple);
   text-decoration: none;
+  background: linear-gradient(90deg, #00e0c6 0%, #7b62ff 50%, #9b63ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .brand {
@@ -43,42 +71,51 @@
   display: flex;
   gap: 18px;
   margin: 0 auto;
+  align-items: center;
 }
 
 .nav-link {
-  color: #374151;
+  color: rgba(11, 37, 64, 0.8);
   text-decoration: none;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 6px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background 160ms ease, transform 160ms ease, color 160ms ease;
 }
 
 .nav-link.active {
-  color: var(--brand-purple);
+  color: #0b2540;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 20px rgba(12, 34, 60, 0.06);
 }
 
 .nav-actions {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .btn-logout {
-  background: linear-gradient(180deg, var(--brand-purple), #4a2ce6);
+  background: linear-gradient(90deg, #00e0c6 0%, #7b62ff 50%, #9b63ff 100%);
   color: #fff;
   padding: 8px 14px;
-  border-radius: 10px;
+  border-radius: 999px;
   border: none;
   cursor: pointer;
   text-decoration: none;
+  box-shadow: 0 8px 28px rgba(74, 44, 230, 0.14);
 }
 
 .btn-outline {
-  background: transparent;
-  border: 3px solid rgba(15, 23, 36, 0.06);
-  color: #374151;
-  padding: 6px 10px;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(11, 37, 64, 0.06);
+  color: rgba(11, 37, 64, 0.9);
+  padding: 6px 12px;
+  border-radius: 999px;
   text-decoration: none;
   margin-right: 8px;
+  backdrop-filter: blur(4px);
 }
 
 .site-footer {
