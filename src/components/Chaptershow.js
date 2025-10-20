@@ -57,6 +57,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Card, Row, Col, Alert } from "react-bootstrap";
+import "../styles/Chaptershow.css";
 
 const ChapterComponent = () => {
   const { classNumber, subject } = useParams();
@@ -90,7 +91,7 @@ const ChapterComponent = () => {
   };
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 chapter-page-container">
       <h2 className="text-center mb-4">Chapters for {subject} (Class {classNumber})</h2>
       <Row>
         {loading ? (
@@ -98,7 +99,7 @@ const ChapterComponent = () => {
         ) : chapters.length > 0 ? (
           chapters.map((chapter, index) => (
             <Col md={4} key={index}>
-              <Card className="mb-3 shadow-sm" onClick={() => handleChapterClick(chapter)} style={{ cursor: "pointer" }}>
+              <Card className="mb-3 chapter-card" onClick={() => handleChapterClick(chapter)}>
                 <Card.Body>
                   <Card.Title className="text-center">{chapter}</Card.Title>
                 </Card.Body>
