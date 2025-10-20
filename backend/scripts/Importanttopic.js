@@ -70,8 +70,8 @@
 // importanttopic.js
 const mongoose = require("mongoose");
 const ImportantTopic = require("../models/Importantchaptopic");
-const mongoURI ='mongodb+srv://haribalaji17072004:123456hari@cluster0.b21vp.mongodb.net/mynotes'
-// 'mongodb://localhost:27017/mynotes'
+// const mongoURI ='mongodb+srv://haribalaji17072004:123456hari@cluster0.b21vp.mongodb.net/mynotes'
+const mongoURI = 'mongodb://localhost:27017/mynotes';
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
