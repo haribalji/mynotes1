@@ -1,0 +1,43 @@
+/* src/styles/SubjectsByClass.css */
+
+.subject-page-container .h2 {
+    font-weight: 800;
+    color: #0b2136;
+    margin-bottom: 2rem;
+}
+
+.subject-page-container .alert-success {
+    background-color: rgba(230, 255, 240, 0.9);
+    border: 1px solid rgba(0, 224, 198, 0.2);
+    color: #0b2136;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.subject-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 255, 0.8));
+    border: 1px solid rgba(15, 30, 50, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(11, 28, 50, 0.07);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    cursor: pointer;
+}
+
+.subject-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(11, 28, 50, 0.12);
+}
+
+.subject-card .card-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #0b2136;
+}
+
+.subject-emoji {
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}

@@ -83,6 +83,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import studentContext from "../context/students/studentcontext";
 import { Container, Card, Row, Col, Alert } from "react-bootstrap";
+import "../styles/SubjectsByClass.css";
 
 const SubjectsByClass = () => {
   const navigate = useNavigate();
@@ -131,8 +132,23 @@ const SubjectsByClass = () => {
     navigate(`/chapters/${student.class}/${subject}`);
   };
 
+  const getSubjectEmoji = (title) => {
+    const lowerCaseTitle = title.toLowerCase();
+    if (lowerCaseTitle.includes("math")) return "🧮";
+    if (lowerCaseTitle.includes("science")) return "🔬";
+    if (lowerCaseTitle.includes("physics")) return "⚛️";
+    if (lowerCaseTitle.includes("chemistry")) return "🧪";
+    if (lowerCaseTitle.includes("biology")) return "🧬";
+    if (lowerCaseTitle.includes("history")) return "📜";
+    if (lowerCaseTitle.includes("english") || lowerCaseTitle.includes("literature")) return "📚";
+    if (lowerCaseTitle.includes("computer") || lowerCaseTitle.includes("programming")) return "💻";
+    if (lowerCaseTitle.includes("art")) return "🎨";
+    if (lowerCaseTitle.includes("music")) return "🎵";
+    return "📖"; // Default
+  };
+
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 subject-page-container">
 
       <h2 className="text-center mb-4">Subjects for Class {student?.class}</h2>
       {student ? (
@@ -144,8 +160,9 @@ const SubjectsByClass = () => {
             ) : subjects.length > 0 ? (
               subjects.map((subject, index) => (
                 <Col md={4} key={index}>
-                  <Card className="mb-3 shadow-sm" onClick={() => handleSubjectClick(subject)}>
+                  <Card className="mb-3 subject-card" onClick={() => handleSubjectClick(subject)}>
                     <Card.Body>
+                      <div className="subject-emoji">{getSubjectEmoji(subject)}</div>
                       <Card.Title className="text-center">{subject}</Card.Title>
                     </Card.Body>
                   </Card>
