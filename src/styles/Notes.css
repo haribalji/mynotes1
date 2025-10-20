@@ -1,6 +1,5 @@
 /* Notes page layout and theme-consistent styles */
 
-
 .notes-section {
   padding: 28px 18px;
   max-width: 1180px;
@@ -142,6 +141,42 @@
 .btn-rounded {
   border-radius: 8px;
   padding: 10px 16px;
+}
+
+/* Edit modal form controls - align with Addnote inputs/buttons */
+.modal-body .form-group {
+  margin-bottom: 14px;
+}
+.modal-body label {
+  display: block;
+  font-size: 14px;
+  color: #68708a;
+  margin-bottom: 6px;
+}
+.modal-body .form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(11, 37, 64, 0.06);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: none;
+  transition: box-shadow 180ms ease, border-color 160ms ease;
+}
+.modal-body .form-control:focus {
+  outline: none;
+  border-color: rgba(74, 44, 230, 0.32);
+  box-shadow: 0 6px 26px rgba(74, 44, 230, 0.06);
+}
+.modal-footer .btn.btn-primary.btn-rounded {
+  background: linear-gradient(90deg, #00e0c6 0%, #7b62ff 50%, #9b63ff 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 12px 30px rgba(74, 44, 230, 0.12);
+}
+.modal-footer .btn.btn-secondary.btn-rounded {
+  background: rgba(11, 28, 50, 0.04);
+  border: none;
+  color: #0b2136;
 }
 
 /* ensure Addnote card centers and has margin similar to screenshot */
