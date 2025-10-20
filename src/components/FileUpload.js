@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Summarizer.css";
 import { useNavigate } from "react-router-dom";
+import GeminiResponse from "./GeminiResponse";
 
 const FileUpload = () => {
   const summaryRef = useRef(null);
@@ -166,7 +167,9 @@ const FileUpload = () => {
                 Summary
               </div>
 
-              <p className="summary-text">{summary}</p>
+              <GeminiResponse text={summary} />
+
+              {/* <p className="summary-text">{summary}</p> */}
 
               {/* Language Selection */}
               {/* <div className="d-flex justify-content-center mt-3">
