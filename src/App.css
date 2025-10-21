@@ -75,7 +75,7 @@ html.bg-home .content {
     #4aa6f3 100%
   );
 }
-html.bg-fileupload .content {
+/* html.bg-fileupload .content {
   background: linear-gradient(135deg, #ffd7a8 0%, #ffb4a2 40%, #f59eeb 100%);
 }
 html.bg-admin .content {
@@ -87,10 +87,10 @@ html.bg-home-about .content {
 html.bg-login .content,
 html.bg-signup .content {
   background: linear-gradient(135deg, #f5e6ff 0%, #e7f4ff 50%, #fff8e7 100%);
-}
-html.bg-student .content {
+} */
+/* html.bg-student .content {
   background: linear-gradient(135deg, #f2f7ff 0%, #dfeaff 50%, #e9fbe9 100%);
-}
+} */
 
 /* smooth background-position animation if you want movement */
 .content {
