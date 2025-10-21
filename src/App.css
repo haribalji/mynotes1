@@ -65,6 +65,161 @@ body {
   );
 }
 
+.books-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.book {
+  position: absolute;
+  background-color: #a98e73;
+  border: 2px solid #7d6b5d;
+  border-radius: 2px 4px 4px 2px;
+  opacity: 0.15;
+}
+
+.book::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -6px;
+  width: 4px;
+  height: calc(100% + 4px);
+  background-color: #7d6b5d;
+  border-radius: 2px 0 0 2px;
+}
+
+.book1 {
+  top: 10%;
+  left: 5%;
+  width: 100px;
+  height: 150px;
+  transform: rotate(-15deg);
+}
+
+.book2 {
+  top: 50%;
+  left: 80%;
+  width: 120px;
+  height: 180px;
+  transform: rotate(10deg);
+  background-color: #8c6f5a;
+}
+
+.book3 {
+  top: 80%;
+  left: 10%;
+  width: 90px;
+  height: 130px;
+  transform: rotate(-5deg);
+  background-color: #c0a085;
+}
+
+.book4 {
+  top: 25%;
+  left: 90%;
+  width: 80px;
+  height: 120px;
+  transform: rotate(20deg);
+  background-color: #a98e73;
+}
+
+.book5 {
+  top: 60%;
+  left: 2%;
+  width: 110px;
+  height: 160px;
+  transform: rotate(-25deg);
+  background-color: #8c6f5a;
+}
+
+/* --- Stationery --- */
+.pencil,
+.pen,
+.scissors {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.pencil1 {
+  width: 150px;
+  height: 150px;
+  background-image: url("./components/assets/pencil.svg");
+  bottom: 25%;
+  right: 25%;
+  transform: rotate(25deg);
+}
+
+.pencil2 {
+  width: 180px;
+  height: 180px;
+  background-image: url("./components/assets/pencil1.svg");
+  top: 15%;
+  left: 10%;
+  transform: rotate(-35deg);
+}
+
+.pen1 {
+  width: 160px;
+  height: 160px;
+  background-image: url("./components/assets/pen.svg");
+  top: 20%;
+  right: 10%;
+  transform: rotate(15deg);
+}
+
+.scissors1 {
+  width: 130px;
+  height: 130px;
+  background-image: url("./components/assets/scissors.svg");
+  bottom: 20%;
+  left: 15%;
+  transform: rotate(-20deg) scaleX(-1); /* Flipped */
+}
+
+/* Animation for stationery */
+@keyframes float-stationery {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--initial-rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-15px)
+      rotate(calc(var(--initial-rotate, 0deg) + 5deg));
+  }
+}
+
+.pencil,
+.pen,
+.scissors {
+  animation: float-stationery 8s ease-in-out infinite;
+}
+.pencil1 {
+  --initial-rotate: 25deg;
+  animation-delay: -2s;
+}
+.pencil2 {
+  --initial-rotate: -35deg;
+  animation-delay: -4s;
+}
+.pen1 {
+  --initial-rotate: 15deg;
+  animation-delay: -6s;
+}
+.scissors1 {
+  --initial-rotate: -20deg;
+  animation-delay: -1s;
+}
+
 /* Background variants - add more as needed */
 /* html.bg-home .content {
   background: linear-gradient(

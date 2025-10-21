@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Form, ListGroup } from "react-bootstrap";
 import axios from "axios";
+import "../styles/Checkmodel.css";
 // const axios=require('axios');
 
-const ChecklistModal = ({ show, handleClose, userId, classNumber, subject, chapter }) => {
+const ChecklistModal = ({
+  show,
+  handleClose,
+  userId,
+  classNumber,
+  subject,
+  chapter,
+}) => {
   const [checklist, setChecklist] = useState([]);
   const [newItem, setNewItem] = useState("");
 
@@ -11,7 +19,9 @@ const ChecklistModal = ({ show, handleClose, userId, classNumber, subject, chapt
   useEffect(() => {
     if (show) {
       axios
-        .get(`http://localhost:5000/api/checklists/${userId}/${classNumber}/${subject}/${chapter}`)
+        .get(
+          `http://localhost:5000/api/checklists/${userId}/${classNumber}/${subject}/${chapter}`
+        )
         .then((res) => setChecklist(res.data?.items || []))
         .catch((err) => console.error("Error fetching checklist:", err));
     }
@@ -41,87 +51,53 @@ const ChecklistModal = ({ show, handleClose, userId, classNumber, subject, chapt
   // 🚀 Update Checklist in Database
   const updateChecklist = (items) => {
     axios
-      .put(`http://localhost:5000/api/checklists/${userId}/${classNumber}/${subject}/${chapter}`, { items })
+      .put(
+        `http://localhost:5000/api/checklists/${userId}/${classNumber}/${subject}/${chapter}`,
+        { items }
+      )
       .then(() => setChecklist(items))
       .catch((err) => console.error("Error updating checklist:", err));
   };
 
   return (
-    // <Modal show={show} onHide={handleClose} centered>
-    //   <Modal.Header closeButton>
-    //     <Modal.Title>Checklist - {chapter} ({subject})</Modal.Title>
-    //   </Modal.Header>
-    //   <Modal.Body>
-    //     <ListGroup>
-    //       {checklist.length > 0 ? (
-    //         checklist.map((item, index) => (
-    //           <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
-    //             <Form.Check
-    //               type="checkbox"
-    //               checked={item.completed}
-    //               onChange={() => toggleComplete(index)}
-    //               label={item.text}
-    //             />
-    //             <Button variant="danger" size="sm" onClick={() => removeItem(index)}>❌</Button>
-    //           </ListGroup.Item>
-    //         ))
-    //       ) : (
-    //         <p className="text-muted text-center">No checklist items yet.</p>
-    //       )}
-    //     </ListGroup>
-    //     <Form.Control
-    //       type="text"
-    //       placeholder="Add new item..."
-    //       value={newItem}
-    //       onChange={(e) => setNewItem(e.target.value)}
-    //       className="mt-3"
-    //     />
-    //     <Button className="mt-2 w-100" variant="success" onClick={addItem}>Add Item</Button>
-    //   </Modal.Body>
-    //   <Modal.Footer>
-    //     <Button variant="secondary" onClick={handleClose}>Close</Button>
-    //   </Modal.Footer>
-    // </Modal>
-
-
-    <Modal show={show} onHide={handleClose} centered>
-      {/* <Modal.Header closeButton className="bg-light text-white">
-        <Modal.Title className="bg-dark fw-bold">
+    <Modal
+      show={show}
+      onHide={handleClose}
+      centered
+      dialogClassName="checklist-modal-dialog"
+      contentClassName="checklist-modal-content"
+      backdropClassName="checklist-backdrop"
+    >
+      <Modal.Header closeButton className="checklist-modal-header">
+        <Modal.Title className="fw-bold">
           📋 Checklist - {chapter} ({subject})
         </Modal.Title>
-      </Modal.Header> */}
-      <Modal.Header closeButton className="bg-primary text-white">
-  <Modal.Title className="fw-bold">
-    📋 Checklist - {chapter} ({subject})
-  </Modal.Title>
-</Modal.Header>
+      </Modal.Header>
 
-
-      <Modal.Body className="bg-light">
-        <ListGroup className="rounded shadow-sm">
+      <Modal.Body className="checklist-modal-body">
+        <ListGroup className="checklist-list">
           {checklist.length > 0 ? (
             checklist.map((item, index) => (
               <ListGroup.Item
                 key={index}
-                className={`d-flex justify-content-between align-items-center ${
-                  item.completed ? "bg-success text-white" : "bg-white"
-                } shadow-sm rounded my-2`}
-                style={{ transition: "0.3s" }}
+                className={`checklist-item d-flex justify-content-between align-items-center ${
+                  item.completed ? "completed" : ""
+                }`}
               >
                 <Form.Check
                   type="checkbox"
                   checked={item.completed}
                   onChange={() => toggleComplete(index)}
                   label={item.text}
-                  className="fw-medium"
+                  className="checklist-label"
                 />
                 <Button
                   variant="danger"
                   size="sm"
                   onClick={() => removeItem(index)}
-                  className="rounded-circle"
+                  className="checklist-remove-btn"
                 >
-                  X
+                  ✕
                 </Button>
               </ListGroup.Item>
             ))
@@ -130,35 +106,34 @@ const ChecklistModal = ({ show, handleClose, userId, classNumber, subject, chapt
           )}
         </ListGroup>
 
-  
-
-<Form.Control
-  as="textarea"
-  rows={3}
-  placeholder="✍️ Add new item..."
-  value={newItem}
-  onChange={(e) => setNewItem(e.target.value)}
-  className="mt-3 p-2 rounded shadow-sm"
-/>
-
-        <Button
-          className="mt-2 w-100 fw-bold rounded shadow-sm"
-          variant="primary"
-          onClick={addItem}
-          style={{ backgroundColor: "#007bff", border: "none" }}
-        >
-          ➕ Add Item
-        </Button>
+        <Form.Control
+          as="textarea"
+          rows={3}
+          placeholder="✍️ Add new item..."
+          value={newItem}
+          onChange={(e) => setNewItem(e.target.value)}
+          className="checklist-input mt-3"
+        />
       </Modal.Body>
 
-      <Modal.Footer className="bg-light">
-        <Button
-          variant="secondary"
-          className="w-100 fw-bold shadow-sm"
-          onClick={handleClose}
-        >
-          Close
-        </Button>
+      <Modal.Footer className="checklist-modal-footer">
+        <div className="checklist-footer-row">
+          <Button
+            className="checklist-add-btn fw-bold"
+            variant="primary"
+            onClick={addItem}
+          >
+            ➕ Add Item
+          </Button>
+
+          <Button
+            variant="secondary"
+            className="checklist-close-btn fw-bold"
+            onClick={handleClose}
+          >
+            Close
+          </Button>
+        </div>
       </Modal.Footer>
     </Modal>
   );

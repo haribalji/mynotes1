@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 // import axios from "axios";
+import { useRef } from "react";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -42,12 +43,39 @@ function App() {
     }, 1500);
   };
 
+  const booksRef = useRef(null);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        if (booksRef.current) {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          booksRef.current.style.transform = `translateY(${scrollTop * 0.5}px)`;
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
   return (
     <>
       <div className="app-container">
         <div className="content">
           {/* <Home
     /> */}
+          {/* <div className="books-background" ref={booksRef}>
+            <div className="book book1"></div>
+            <div className="book book2"></div>
+            <div className="book book3"></div>
+
+            <div className="pencil pencil1"></div>
+            <div className="pen pen1"></div>
+            <div className="scissors scissors1"></div>
+            <div className="pencil pencil2"></div>
+          </div> */}
           <Alert />
           <NoteState>
             <StudentState>

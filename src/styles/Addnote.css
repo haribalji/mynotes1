@@ -5,8 +5,8 @@
   margin: 24px auto;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.92),
-    rgba(245, 255, 250, 0.7)
+    rgba(255, 255, 255, 0.98),
+    rgba(250, 255, 250, 0.86)
   );
   border-radius: 18px;
   padding: 32px 28px;
@@ -38,13 +38,13 @@
   font-size: 15px;
   font-weight: 600;
   font-style: bold;
-  color: #68708a;
+  color: black;
   margin-bottom: 1px;
   display: block;
 }
 
 .addnote-label.optional {
-  color: #68708a;
+  color: black;
 }
 
 .addnote-input,

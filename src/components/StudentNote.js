@@ -460,7 +460,7 @@ const StudentNoteComponent = () => {
         {importantTopics.length > 0 ? (
           importantTopics.map((topic, index) => (
             <Col xs={12} md={6} key={index} className="d-flex">
-              <Card className="topic-card mb-3 shadow-sm border-0">
+              <Card className="topic-card mb-3">
                 <Card.Body>
                   <h5 className="topic-title fw-bold text-dark">{topic}</h5>
                 </Card.Body>
@@ -474,12 +474,11 @@ const StudentNoteComponent = () => {
 
       {/* Add Note Button */}
       <div className="text-center my-3">
-        <Button variant="primary" onClick={() => setShowModal(true)}>
+        <Button className="sn-add-btn" onClick={() => setShowModal(true)}>
           Add Note
         </Button>
         <Button
-          //  variant="primary"
-          className="btn btn-primary mx-2"
+          className="sn-checklist-btn mx-2"
           onClick={() => setShowChecklist(true)}
         >
           📋Checklist
@@ -529,15 +528,23 @@ const StudentNoteComponent = () => {
       </Row>
 
       {/* Add Note Modal */}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        dialogClassName="addnote-modal-dialog"
+        contentClassName="addnote-modal-content"
+        backdropClassName="addnote-backdrop"
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title>Add Note</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleNoteSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>Title</Form.Label>
+              <Form.Label className="form-label">Title</Form.Label>
               <Form.Control
+                className="form-input"
                 value={newNote.title}
                 onChange={(e) =>
                   setNewNote({ ...newNote, title: e.target.value })
@@ -546,8 +553,9 @@ const StudentNoteComponent = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label className="form-label">Description</Form.Label>
               <Form.Control
+                className="form-input"
                 as="textarea"
                 rows={3}
                 value={newNote.description}
@@ -565,7 +573,14 @@ const StudentNoteComponent = () => {
       </Modal>
 
       {/* Edit Note Modal */}
-      <Modal show={editModal} onHide={() => setEditModal(false)}>
+      <Modal
+        show={editModal}
+        onHide={() => setEditModal(false)}
+        dialogClassName="addnote-modal-dialog"
+        contentClassName="addnote-modal-content"
+        backdropClassName="addnote-backdrop"
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title>Edit Note</Modal.Title>
         </Modal.Header>
@@ -639,7 +654,7 @@ const StudentNoteComponent = () => {
         {media.length > 0 ? (
           media.map((item) => (
             <Col md={6} key={item._id}>
-              <Card className="mb-3 shadow-sm border-0">
+              <Card className="mb-3">
                 <Card.Body className="text-center">
                   <h6 className="fw-bold">
                     {/* <h6 className="fw-bold">{item.subject+ "-"+item.chapter+item.fileName}</h6>  if you need the fileid in tile use this */}
@@ -752,7 +767,7 @@ const StudentNoteComponent = () => {
           {/* Audio Recorder Section */}
 
           <Col xs={12} md={6} className="mt-2">
-            <Card className=" rounded mb-4 bg-white" >
+            <Card className=" rounded mb-4 bg-white">
               {!recordingActive ? (
                 <Button
                   className="fw-bold px-4 py-2 w-100"
