@@ -46,7 +46,7 @@
 .topic-card:focus-within {
   transform: translateY(-8px);
   /* deeper hover shadow for more pronounced elevation */
-  box-shadow: 0 36px 80px rgba(11, 28, 50, 0.18);
+  justify-content: center; /* Keep centered on mobile */
   z-index: 3;
 }
 
@@ -211,15 +211,114 @@
   color: #4b5563;
 }
 
+/* Notes card body spacing and actions */
+.notes-list .card-body {
+  padding: 18px 20px;
+}
+
+.note-actions-row {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.note-actions-row .btn {
+  min-width: 92px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(11, 28, 50, 0.06);
+}
+
+/* Responsive notes columns: make two columns on md and above, full width on small screens */
+@media (max-width: 768px) {
+  .notes-list > .col-md-6 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .note-actions-row {
+    justify-content: center;
+  }
+}
+
 /* Upload card */
 .upload-card {
   padding: 18px;
   border-radius: 12px;
-  border: 1px dashed rgba(15, 30, 50, 0.06);
+  border: 1px dashed rgba(15, 30, 50, 0.4);
   background: rgba(255, 255, 255, 0.96);
 }
 .upload-card .form-control[type="file"] {
   width: auto;
+}
+
+/* Enhanced upload form */
+.upload-form {
+  gap: 10px;
+  align-items: center;
+}
+
+.upload-file {
+  flex: 0 0 auto;
+  border-radius: 10px;
+  padding: 6px 10px;
+  border: 1px solid rgba(11, 28, 50, 0.06);
+  background: #fbfdff;
+}
+
+.upload-select {
+  min-width: 160px;
+  border-radius: 10px;
+  padding: 6px 10px;
+  border: 1px solid rgba(11, 28, 50, 0.2);
+  background: #fff;
+}
+
+.upload-btn {
+  background: linear-gradient(90deg, #10b981, #06b6d4); /* teal -> cyan */
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 12px 36px rgba(6, 18, 30, 0.09);
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 120ms ease;
+}
+
+.upload-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(6, 18, 30, 0.12);
+  opacity: 0.98;
+}
+
+@media (max-width: 576px) {
+  .upload-form {
+    flex-direction: column;
+    /* align-items: stretch; */
+  }
+  .upload-file,
+  .upload-select,
+  .upload-btn {
+    width: 100%;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  .upload-file {
+    padding: 10px;
+    display: block;
+    max-width: 50%;
+  }
+
+  /* Remove Bootstrap end margins that can cause horizontal overflow */
+  .upload-form .me-3 {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Slightly tighter vertical spacing on very small screens */
+  .upload-form {
+    gap: 8px;
+  }
 }
 
 /* Media grid */
@@ -243,6 +342,29 @@
   box-shadow: 0 26px 56px rgba(11, 28, 50, 0.12);
 }
 
+.media-thumb {
+  max-width: 140px;
+  height: auto;
+  display: block;
+  margin: 8px auto 6px auto;
+}
+
+.media-audio {
+  width: 100%;
+}
+
+.media-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Small helper: make the media-col a simple grid item wrapper so it respects grid gaps */
+.media-col {
+  display: block;
+}
+
 /* Camera / video styles */
 .camera-card {
   padding: 16px;
@@ -255,16 +377,149 @@
   border-radius: 8px;
   max-height: 360px;
   object-fit: cover;
+  background: #000;
 }
 
-/* Audio controls and recorded clip */
-.audio-controls {
+.camera-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.camera-actions {
+  margin-top: 12px;
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  justify-content: center;
   flex-wrap: wrap;
 }
-.audio-controls .btn {
-  min-width: 110px;
+
+.camera-btn {
+  min-width: 130px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(11, 28, 50, 0.06);
+}
+
+@media (max-width: 576px) {
+  .camera-actions {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .camera-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.camera-blue-btn{
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(11, 28, 50, 0.07);
+  border: 1px solid rgba(11, 28, 50, 0.04);
+}
+
+/* Audio recorder section: improved layout, buttons and playback box */
+.audio-recorder {
+  background: #ffffff;
+  border-radius: 12px;
+  /* padding: 16px; */
+  box-shadow: 0 12px 34px rgba(11, 28, 50, 0.07);
+  border: 1px solid rgba(11, 28, 50, 0.04);
+}
+
+.audio-recorder .recorder-header {
+  font-weight: 700;
+  color: #0b3b66;
+  margin-bottom: 8px;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* align-items: stretch; */
+}
+
+.audio-controls .recorder-btn , .audio-controls .recorder-btn.warn{
+  align-items: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(11, 28, 50, 0.06);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.audio-controls .recorder-btn:active {
+  transform: translateY(1px) scale(0.998);
+}
+
+.audio-controls .recorder-btn.primary{
+  background: #2563eb; /* primary blue to match other buttons */
+  color: #fff;
+  border: none;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.08);
+  cursor: pointer;
+}
+
+.audio-controls .recorder-btn.warn {
+  background: #f59e0b;
+  color: #fff;
+  border: none;
+}
+
+.audio-controls .recorder-btn.danger {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+}
+
+.playback-box {
+  margin-top: 14px;
+  padding: 12px;
+  background: #fbfdff;
+  border-radius: 10px;
+  border: 1px solid rgba(11, 28, 50, 0.03);
+}
+
+.playback-box audio {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .audio-controls {
+    gap: 8px;
+  }
+  .audio-controls .recorder-btn {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+}
+
+/* Desktop: left-align audio controls so buttons sit flush with card content */
+@media (min-width: 768px) {
+  
+  .audio-recorder .audio-controls {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .audio-controls .recorder-btn {
+    /* allow button to size naturally rather than enforcing a minimum that creates white space */
+    min-width: 0;
+  }
+  /* make the primary recorder button expand to fill remaining space on desktop */
+  .audio-controls .recorder-btn.primary {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 }
 
 /* Modal overrides: match site theme */
@@ -347,11 +602,25 @@
     margin-bottom: 12px;
   }
   .media-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr; /* single column on small screens */
+    gap: 12px;
+    margin-left: 0;
+    margin-right: 0;
   }
   .topic-title {
     font-size: 14px;
   }
+}
+
+/* Ensure media thumbnails never overflow their card */
+.media-thumb {
+  max-width: 100%;
+  height: auto;
+}
+
+.media-item {
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 @media (max-width: 420px) {

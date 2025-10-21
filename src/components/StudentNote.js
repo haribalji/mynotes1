@@ -486,7 +486,7 @@ const StudentNoteComponent = () => {
       </div>
 
       {/* Notes Section */}
-      <Row className="mt-4">
+      <Row className="mt-4 notes-list">
         {notes.length > 0 ? (
           notes.map((note) => (
             <Col md={6} key={note._id}>
@@ -494,7 +494,7 @@ const StudentNoteComponent = () => {
                 <Card.Body>
                   <h5 className="text-primary fw-bold">{note.title}</h5>
                   <p className="text-muted">{note.description}</p>
-                  <div className="d-flex justify-content-between">
+                  <div className="note-actions-row">
                     <Button
                       variant="warning"
                       onClick={() => {
@@ -620,20 +620,17 @@ const StudentNoteComponent = () => {
       </Modal>
 
       {/* Upload Media Section */}
-      <Card className="p-4 shadow-sm mt-4 bg-light">
+      <Card className="upload-card p-4 shadow-sm mt-4 bg-light">
         <h4 className="text-info fw-bold">Upload Media</h4>
-        <Form
-          onSubmit={handleUpload}
-          className="d-flex flex-wrap align-items-center"
-        >
+        <Form onSubmit={handleUpload} className="upload-form">
           <Form.Control
             type="file"
-            className="me-3 mb-2"
+            className="upload-file me-3 mb-2"
             onChange={(e) => setFile(e.target.files[0])}
             required
           />
           <Form.Select
-            className="me-3 mb-2"
+            className="upload-select me-3 mb-2"
             value={fileType}
             onChange={(e) => setFileType(e.target.value)}
           >
@@ -642,7 +639,7 @@ const StudentNoteComponent = () => {
             <option value="audio">Audio</option>
             <option value="document">Document</option>
           </Form.Select>
-          <Button type="submit" variant="success" className="mb-2">
+          <Button type="submit" variant="success" className="upload-btn mb-2">
             <FaUpload /> Upload
           </Button>
         </Form>
@@ -650,25 +647,23 @@ const StudentNoteComponent = () => {
 
       {/* Uploaded Media Section */}
       <h4 className="text-info mt-4 fw-bold">Uploaded Media</h4>
-      <Row className="mt-3">
+      <div className="media-grid mt-3">
         {media.length > 0 ? (
           media.map((item) => (
-            <Col md={6} key={item._id}>
-              <Card className="mb-3">
+            <div className="media-col" key={item._id}>
+              <Card className="media-item">
                 <Card.Body className="text-center">
                   <h6 className="fw-bold">
-                    {/* <h6 className="fw-bold">{item.subject+ "-"+item.chapter+item.fileName}</h6>  if you need the fileid in tile use this */}
                     {item.subject} - {item.chapter} - {item.fileType}
                   </h6>
                   {item.fileType === "image" ? (
                     <img
                       src={`http://localhost:5000${item.filePath}`}
                       alt={item.fileName}
-                      className="img-fluid rounded shadow-sm mt-2"
-                      style={{ maxWidth: "100px" }}
+                      className="img-fluid rounded shadow-sm mt-2 media-thumb"
                     />
                   ) : item.fileType === "audio" ? (
-                    <audio controls className="mt-2">
+                    <audio controls className="mt-2 media-audio">
                       <source
                         src={`http://localhost:5000${item.filePath}`}
                         type="audio/mpeg"
@@ -678,7 +673,7 @@ const StudentNoteComponent = () => {
                   ) : (
                     <p className="text-muted">{item.fileName}</p>
                   )}
-                  <div className="mt-3 d-flex justify-content-center">
+                  <div className="media-actions mt-3">
                     <Button
                       variant="info"
                       className="me-2"
@@ -697,49 +692,65 @@ const StudentNoteComponent = () => {
                   </div>
                 </Card.Body>
               </Card>
-            </Col>
+            </div>
           ))
         ) : (
           <Alert variant="warning" className="text-center">
             No media available.
           </Alert>
         )}
-      </Row>
+      </div>
 
       <div className="container mt-5">
         <Row>
           {/* Camera Section */}
           <Col md={6} className="mt-2">
             {showCamera ? (
-              <Card className="p-3 shadow-lg text-center mb-3">
+              <Card className="p-3 shadow-lg text-center mb-3 camera-card">
                 <h5 className="text-primary fw-bold">📷 Live Camera</h5>
                 <div className="d-flex justify-content-center">
                   <video
                     ref={videoRef}
                     autoPlay
-                    className="border rounded shadow-lg"
+                    className="border rounded shadow-lg camera-video"
                     style={{ width: "100%", maxWidth: "500px", height: "auto" }}
                   ></video>
                 </div>
-                <div className="d-flex flex-wrap justify-content-center gap-3 mt-2">
-                  <Button variant="warning" onClick={capturePhoto}>
+                <div className="camera-actions d-flex flex-wrap justify-content-center gap-3 mt-2">
+                  <Button
+                    variant="warning"
+                    onClick={capturePhoto}
+                    className="camera-btn"
+                  >
                     📸 Capture Photo
                   </Button>
                   {!isRecording ? (
-                    <Button variant="danger" onClick={startRecording}>
+                    <Button
+                      variant="danger"
+                      onClick={startRecording}
+                      className="camera-btn"
+                    >
                       <FaVideo /> Start Recording
                     </Button>
                   ) : (
-                    <Button variant="dark" onClick={stopRecording}>
+                    <Button
+                      variant="dark"
+                      onClick={stopRecording}
+                      className="camera-btn"
+                    >
                       ⏹️ Stop Recording
                     </Button>
                   )}
-                  <Button variant="secondary" onClick={stopCamera}>
+                  <Button
+                    variant="secondary"
+                    onClick={stopCamera}
+                    className="camera-btn"
+                  >
                     ❌ OF Camera
                   </Button>
                   <Button
                     variant="success"
-                    className="fw-bold px-3 py-2"
+                    className="fw-bold px-3 py-2 camera-btn"
                     onClick={startCamera}
                   >
                     <FaCamera /> ON Camera
@@ -749,64 +760,55 @@ const StudentNoteComponent = () => {
             ) : (
               <Button
                 variant="primary"
-                className="fw-bold px-4 py-2 w-100"
+                className="fw-bold px-4 py-2 w-100 camera-blue-btn"
                 onClick={startCamera}
               >
                 <FaCamera /> Open Camera
               </Button>
-
-              // if not work use this
-              // // <div className="text-center">
-              //   <Button variant="primary" className="fw-bold px-4 py-2 w-100" onClick={startCamera}>
-              //     <FaCamera /> Open Camera
-              //   </Button>
-              // // </div>
             )}
           </Col>
 
           {/* Audio Recorder Section */}
 
           <Col xs={12} md={6} className="mt-2">
-            <Card className=" rounded mb-4 bg-white">
-              {!recordingActive ? (
-                <Button
-                  className="fw-bold px-4 py-2 w-100"
-                  onClick={startRecordingAudio}
-                >
-                  <FaMicrophone className="me-2" /> Take Voice Note
-                </Button>
-              ) : (
-                <Button
-                  className="btn btn-outline-danger w-100 py-2 fw-bold "
-                  onClick={stopRecordingAudio}
-                >
-                  <FaTrash className="me-2" /> Stop Recording
-                </Button>
-              )}
+            <Card className="rounded bg-white audio-recorder">
+              <div className="audio-controls">
+                {!recordingActive ? (
+                  <Button
+                    onClick={startRecordingAudio}
+                    className="recorder-btn primary"
+                  >
+                    <FaMicrophone className="me-2" /> Take Voice Note
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={stopRecordingAudio}
+                    className="recorder-btn warn"
+                  >
+                    <FaTrash className="me-2" /> Stop Recording
+                  </Button>
+                )}
+              </div>
 
               {audioFileUrl && (
-                <div className="mt-4 p-3 bg-white rounded shadow-sm text-center">
-                  <audio
-                    controls
-                    src={audioFileUrl}
-                    className="d-block w-100 mb-3 border rounded"
-                  ></audio>
+                <div className="playback-box">
+                  <audio controls src={audioFileUrl} className="mb-3"></audio>
 
-                  <div className="d-flex flex-column flex-md-row justify-content-center gap-2">
+                  <div className="audio-controls">
                     <Button
-                      className="btn btn-success w-100 py-2 fw-bold shadow-sm"
+                      className="recorder-btn primary"
                       onClick={uploadAudioFile}
                     >
                       <FaUpload className="me-2" /> Upload
                     </Button>
                     <Button
-                      className="btn btn-warning w-100 py-2 fw-bold shadow-sm text-dark"
+                      className="recorder-btn warn"
                       onClick={downloadAudioFile}
                     >
                       <FaDownload className="me-2" /> Download
                     </Button>
                     <Button
-                      className="btn btn-danger w-100 py-2 fw-bold shadow-sm"
+                      className="recorder-btn danger"
                       onClick={deleteAudioFile}
                     >
                       <FaTrash className="me-2" /> Delete

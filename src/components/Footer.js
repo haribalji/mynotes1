@@ -77,13 +77,13 @@ const Footer = () => {
         </p>
       </div>
 
-      <button
+      {/* <button
         onClick={scrollTop}
         className={`scroll-top ${showScroll ? "show" : ""}`}
         aria-label="Scroll to top"
       >
         &#8679;
-      </button>
+      </button> */}
     </footer>
   );
 };
