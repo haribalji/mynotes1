@@ -35,9 +35,11 @@
 }
 
 .addnote-label {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: bold;
   color: #68708a;
-  margin-bottom: 6px;
+  margin-bottom: 1px;
   display: block;
 }
 

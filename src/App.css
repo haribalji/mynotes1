@@ -66,7 +66,7 @@ body {
 }
 
 /* Background variants - add more as needed */
-html.bg-home .content {
+/* html.bg-home .content {
   background: linear-gradient(
     135deg,
     #2ed5c9 0%,
@@ -74,7 +74,7 @@ html.bg-home .content {
     #6dd6d9 60%,
     #4aa6f3 100%
   );
-}
+} */
 /* html.bg-fileupload .content {
   background: linear-gradient(135deg, #ffd7a8 0%, #ffb4a2 40%, #f59eeb 100%);
 }

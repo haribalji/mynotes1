@@ -84,8 +84,13 @@ const Notes = (props) => {
         <div className="book book1"></div>
         <div className="book book2"></div>
         <div className="book book3"></div>
-        <div className="book book4"></div>
-        <div className="book book5"></div>
+        
+        
+
+        <div className="pencil pencil1"></div>
+        <div className="pen pen1"></div>
+        <div className="scissors scissors1"></div>
+        <div className="pencil pencil2"></div>
       </div>
       <div className="content-ontop">
         <Addnote showAlert={props.showAlert} />
@@ -218,6 +223,7 @@ const Notes = (props) => {
           )}
         </section>
       </div>
+      {/* <Addnote showAlert={props.showAlert} /> */}
     </div>
   );
 };
