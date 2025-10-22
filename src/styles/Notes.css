@@ -335,7 +335,7 @@
   box-shadow: 0 6px 26px rgba(74, 44, 230, 0.06);
 }
 .modal-footer .btn.btn-primary.btn-rounded {
-  background: linear-gradient(90deg, #00e0c6 0%, #7b62ff 50%, #9b63ff 100%);
+  background: #2563eb;
   color: #fff;
   border: none;
   box-shadow: 0 12px 30px rgba(74, 44, 230, 0.12);

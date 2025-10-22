@@ -493,7 +493,7 @@ const StudentNoteComponent = () => {
               <Card className="mb-3 shadow-lg">
                 <Card.Body>
                   <h5 className="text-primary fw-bold">{note.title}</h5>
-                  <p className="text-muted">{note.description}</p>
+                  <p className="note-description">{note.description}</p>
                   <div className="note-actions-row">
                     <Button
                       variant="warning"

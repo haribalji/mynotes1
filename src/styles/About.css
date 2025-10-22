@@ -1,0 +1,192 @@
+/* About page styles - card hero and content layout */
+.about-hero {
+  background: linear-gradient(90deg, #e6fffa 0%, #f0f9ff 50%, #e6f7ff 100%);
+  padding: 60px 16px;
+  border-radius: 14px;
+  box-shadow: 0 18px 48px rgba(11, 28, 50, 0.06);
+  border: 1px solid rgba(11, 28, 50, 0.04);
+}
+
+.about-card {
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 12px;
+  box-shadow: 0 14px 36px rgba(11, 28, 50, 0.06);
+  border: 1px solid rgba(11, 28, 50, 0.04);
+}
+
+.about-title {
+  font-weight: 800;
+  color: #0b3b66;
+  letter-spacing: -0.2px;
+}
+
+.about-lead {
+  color: #264653;
+  font-size: 1.05rem;
+}
+
+.about-body {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+@media (max-width: 576px) {
+  .about-hero {
+    padding: 28px 12px;
+  }
+  .about-card {
+    padding: 20px;
+  }
+}
+
+/* --- Stationery (decor) --- */
+.about-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible; /* allow decorations to extend outside the hero/card */
+  z-index: 0;
+}
+.about-decor .pencil,
+.about-decor .pen,
+.about-decor .scissors {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+  width: 90px; /* roughly 50% of larger stationery */
+  height: 90px;
+}
+.about-decor .pencil1 {
+  width: 150px;
+  height: 150px;
+  background-image: url("../components/assets/pencil.svg");
+  bottom: -40px; /* place partly outside the card */
+  right: -40px;
+  transform: rotate(25deg);
+}
+.about-decor .pencil2 {
+  width: 180px;
+  height: 180px;
+  background-image: url("../components/assets/pencil1.svg");
+  top: -40px;
+  left: -40px;
+  transform: rotate(-35deg);
+}
+.about-decor .pen1 {
+  width: 160px;
+  height: 160px;
+  background-image: url("../components/assets/pen.svg");
+  top: -30px;
+  right: -60px;
+  transform: rotate(15deg);
+}
+.about-decor .scissors1 {
+  width: 130px;
+  height: 130px;
+  background-image: url("../components/assets/scissors.svg");
+  bottom: -50px;
+  left: -60px;
+  transform: rotate(-20deg) scaleX(-1);
+}
+
+/* Animation for stationery */
+@keyframes float-stationery {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--initial-rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-15px)
+      rotate(calc(var(--initial-rotate, 0deg) + 5deg));
+  }
+}
+.about-decor .pencil,
+.about-decor .pen,
+.about-decor .scissors {
+  animation: float-stationery 8s ease-in-out infinite;
+}
+.about-decor .pencil1 {
+  --initial-rotate: 25deg;
+  animation-delay: -2s;
+}
+.about-decor .pencil2 {
+  --initial-rotate: -35deg;
+  animation-delay: -4s;
+}
+.about-decor .pen1 {
+  --initial-rotate: 15deg;
+  animation-delay: -6s;
+}
+.about-decor .scissors1 {
+  --initial-rotate: -20deg;
+  animation-delay: -1s;
+}
+
+@media (max-width: 768px) {
+  .about-decor {
+    display: none;
+  }
+}
+
+/* Additional small subject icons (approx 50% size) */
+.about-decor .math,
+.about-decor .math1,
+.about-decor .biology,
+.about-decor .biology1,
+.about-decor .computer,
+.about-decor .science {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  z-index: 0;
+  width: 90px; /* roughly 50% of larger stationery */
+  height: 90px;
+  transition: transform 0.3s ease-out;
+}
+.about-decor .math {
+  background-image: url("../components/assets/math.svg");
+  top: 8%;
+  left: 6%;
+  bottom: -40px; /* place partly outside the card */
+  right: -40px;
+  transform: rotate(-12deg);
+}
+.about-decor .math1 {
+  background-image: url("../components/assets/math1.svg");
+  top: 12%;
+  right: 22%;
+  transform: rotate(18deg);
+}
+.about-decor .biology {
+  background-image: url("../components/assets/biology.svg");
+  bottom: 22%;
+  right: 8%;
+  transform: rotate(-10deg);
+}
+.about-decor .biology1 {
+  background-image: url("../components/assets/biology1.svg");
+  bottom: 8%;
+  left: 28%;
+  bottom: -40px; /* place partly outside the card */
+  right: -40px;
+  transform: rotate(8deg);
+}
+.about-decor .computer {
+  background-image: url("../components/assets/computer.svg");
+  top: 36%;
+  left: 4%;
+  transform: rotate(-6deg);
+}
+.about-decor .science {
+  background-image: url("../components/assets/science.svg");
+  top: 40%;
+  right: 6%;
+  bottom: -40px; /* place partly outside the card */
+  right: -40px;
+  transform: rotate(6deg);
+}

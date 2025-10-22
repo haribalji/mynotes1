@@ -15,17 +15,6 @@
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-/* Important topics: use a responsive 2-column grid (1 column only on very small screens) */
-
-/* .important-topics-row {
-  display: grid;
-  grid-template-columns : repeat(2,1fr);
-  gap: 18px;
-  align-items: start;
-  justify-content: center; 
-   justify-items: stretch; 
-} */
-
 .topic-card {
   align-items: stretch;
   background: #ffffff;
@@ -209,6 +198,21 @@
 }
 .notes-list .card-body p {
   color: #4b5563;
+}
+
+/* New: semantic class for note description text */
+.note-description {
+  color: #16324a; /* darker navy for stronger contrast */
+  font-size: 0.95rem; /* slightly larger than default small text */
+  line-height: 1.45;
+  margin: 0.4rem 0 0.6rem 0;
+  font-weight: 500;
+}
+
+@media (max-width: 576px) {
+  .note-description {
+    font-size: 0.92rem; /* small adjustment for mobile */
+  }
 }
 
 /* Notes card body spacing and actions */
@@ -414,7 +418,7 @@
   }
 }
 
-.camera-blue-btn{
+.camera-blue-btn {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 12px 34px rgba(11, 28, 50, 0.07);
@@ -445,7 +449,8 @@
   /* align-items: stretch; */
 }
 
-.audio-controls .recorder-btn , .audio-controls .recorder-btn.warn{
+.audio-controls .recorder-btn,
+.audio-controls .recorder-btn.warn {
   align-items: stretch;
   display: inline-flex;
   align-items: center;
@@ -462,7 +467,7 @@
   transform: translateY(1px) scale(0.998);
 }
 
-.audio-controls .recorder-btn.primary{
+.audio-controls .recorder-btn.primary {
   background: #2563eb; /* primary blue to match other buttons */
   color: #fff;
   border: none;
@@ -506,7 +511,6 @@
 
 /* Desktop: left-align audio controls so buttons sit flush with card content */
 @media (min-width: 768px) {
-  
   .audio-recorder .audio-controls {
     justify-content: flex-start;
     width: 100%;
@@ -514,10 +518,10 @@
   .audio-controls .recorder-btn {
     /* allow button to size naturally rather than enforcing a minimum that creates white space */
     min-width: 0;
+    flex: 1 1 auto; /* expand buttons equally so none leaves an empty gap */
   }
-  /* make the primary recorder button expand to fill remaining space on desktop */
+  /* keep explicit rule for primary if further overrides are needed */
   .audio-controls .recorder-btn.primary {
-    flex: 1 1 auto;
     min-width: 0;
   }
 }

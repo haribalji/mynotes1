@@ -80,11 +80,8 @@ const Notes = (props) => {
 
   return (
     <div className="notes-wrapper">
-      
-      <div className="content-ontop">
-        <Addnote showAlert={props.showAlert} />
 
-        <div className="books-background" ref={booksRef}>
+      <div className="books-background" ref={booksRef}>
             <div className="book book1"></div>
             <div className="book book2"></div>
             <div className="book book3"></div>
@@ -94,6 +91,9 @@ const Notes = (props) => {
             <div className="scissors scissors1"></div>
             <div className="pencil pencil2"></div>
           </div>
+      
+      <div className="content-ontop">
+        <Addnote showAlert={props.showAlert} />
 
         {/* <!-- Button trigger modal -->                          d-none is used hide this element  */}
         <button

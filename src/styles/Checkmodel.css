@@ -83,8 +83,52 @@
 }
 
 .checklist-label {
-  font-weight: 600;
-  color: #0b1220;
+  font-weight: 700;
+  color: #0b2738; /* deeper navy for high contrast */
+  font-size: 1.05rem; /* slightly larger for readability */
+  letter-spacing: 0.2px;
+  display: inline-block;
+  /* allow label to shrink when space is constrained */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Make the checkbox itself larger and more visible */
+.checklist-item .form-check-input {
+  width: 20px;
+  height: 20px;
+  margin: 0 8px 0 0;
+  border-radius: 6px;
+  border: 2px solid rgba(11, 28, 50, 0.12);
+}
+
+/* Make the checkbox+label a flexible left column so long labels truncate instead of wrapping */
+.checklist-item .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0; /* enables proper shrinking inside flex containers */
+}
+
+.checklist-item .form-check-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* Checked state: stronger background and border */
+.checklist-item .form-check-input:checked {
+  background-color: #2563eb; /* primary blue */
+  border-color: #1e4fd8;
+}
+
+/* When item completed, dim the label a bit but keep good contrast */
+.checklist-item.completed .checklist-label {
+  color: #08334a; /* darker but slightly muted */
+  text-decoration: line-through;
+  opacity: 0.92;
 }
 
 .checklist-remove-btn {

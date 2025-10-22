@@ -42,28 +42,7 @@ const Login = (props) => {
     });
   };
   return (
-    //     <div className='mt-5'>
-    //       <h2>Login to continue to Mynotebook</h2>
-    // <form onSubmit={handlesubmit}>
-    //   <div className="mb-3">
-    //     <label htmlFor="email" className="form-label">Email address</label>
-    //     <input type="email" className="form-control" id="email"  onChange={onchange}name="email" value={credentials.email}  aria-describedby="emailHelp" required/>
-    //     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-    //   </div>
-    //   <div className="mb-3">
-    //     <label htmlFor="password" className="form-label">Password</label>
-    //     <input type="password" className="form-control" name="password" value={credentials.password}  id="password"  onChange={onchange} required/>
-    //   </div>
 
-    //   <button type="submit" className="btn btn-primary" >Submit</button>
-    // </form>
-    // <div class=" container d-flex flex-row bd-highlight mb-3 mt-3">
-
-    //   <button type="text" onClick={handleonclik} className="btn btn-primary p-2 bd-highlight mx-3" >   New User
-    //   </button>
-
-    // </div>
-    // </div>
 
     <div className="login-wrapper">
       <div className="login-bg-blob blob-a" aria-hidden="true"></div>
@@ -178,6 +157,15 @@ const Login = (props) => {
           d="M12 2a7 7 0 0 0-4 12v1a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1a7 7 0 0 0-4-12z"
         />
       </svg>
+
+      <div className="books-background">
+
+            <div className="pencil pencil1"></div>
+            <div className="pen pen1"></div>
+            <div className="scissors scissors1"></div>
+            <div className="pencil pencil2"></div>
+          </div>
+
       <div className="login-card">
         <h2>Welcome to MyNotebook</h2>
         <p>Enter your details to log in</p>
